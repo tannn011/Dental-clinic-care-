@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Dental Care - Premium Dental Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00A8CC;
+            --secondary-color: #004E89;
+            --accent-color: #1B263B;
+            --light-gray: #F5F7FA;
+            --text-dark: #1A1A2E;
+            --text-light: #5A5A5A;
+            --white: #FFFFFF;
+            --border-light: #E8E8E8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ==================== INTRO ANIMATION ==================== */
+        .intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1B263B 0%, #2D4059 50%, #004E89 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOutScreen 0.8s ease-in-out 3.2s forwards;
+        }
+
+        @keyframes fadeOutScreen {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .intro-content {
+            text-align: center;
+            position: relative;
+        }
+
+        .intro-logo {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .intro-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: slideInUp 1s ease-out 0.6s forwards;
+            letter-spacing: -2px;
+        }
+
+        .intro-subtitle {
+            font-size: 18px;
+            color: #B0B0B0;
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--primary-color);
+            margin: 25px auto;
+            opacity: 0;
+            animation: expandWidth 0.8s ease-out 0.9s forwards;
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 60px;
+                opacity: 1;
+            }
+        }
+
+        .intro-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            opacity: 0;
+            animation: pulseIcon 1.5s ease-in-out 1.5s forwards;
+        }
+
+        .intro-icon-circle {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            background: rgba(0, 168, 204, 0.1);
+            animation: rotateBorder 3s linear infinite;
+        }
+
+        @keyframes rotateBorder {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulseIcon {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.2);
+                visibility: hidden;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            animation: slideDown 0.8s ease-out 3.2s both;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .navbar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar-logo i {
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .nav-center {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+        }
+
+        .nav-center li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            position: relative;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-center li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-center li a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-center li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-button {
+            padding: 12px 32px;
+            background: linear-gradient(135deg, var(--primary-color), #0088AA);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 168, 204, 0.3);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2D4059 50%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 60px 50px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 168, 204, 0.1) 0%, transparent 70%);
+            top: -400px;
+            right: -400px;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 168, 204, 0.08) 0%, transparent 70%);
+            bottom: -300px;
+            left: -300px;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 10;
+            max-width: 600px;
+            animation: fadeInLeft 1s ease-out 3.5s both;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle {
+            color: #00D4FF;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: #D0D0D0;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 550px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-primary {
+            padding: 14px 40px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 168, 204, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 14px 40px;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: fadeInRight 1s ease-out 3.5s both;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image-box {
+            width: 450px;
+            height: 450px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 168, 204, 0.3);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-image-box::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(0, 168, 204, 0.2), rgba(0, 168, 204, 0.05));
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        .hero-image-content {
+            font-size: 200px;
+            z-index: 10;
+            animation: fadeIn 1.5s ease-out 4s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ==================== FEATURES SECTION ==================== */
+        .features {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+
+        .section-divider {
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 0 auto 25px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 45px 35px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-left-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(0, 168, 204, 0.15);
+            background: var(--white);
+        }
+
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--primary-color), #0088AA);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* ==================== SERVICES SECTION ==================== */
+        .services {
+            padding: 120px 60px;
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 35px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0, 168, 204, 0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 18px;
+        }
+
+        .service-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* ==================== STATS SECTION ==================== */
+        .stats {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            color: #D0D0D0;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================== TESTIMONIALS SECTION ==================== */
+        .testimonials {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--light-gray);
+            padding: 40px 35px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 168, 204, 0.1);
+        }
+
+        .testimonial-stars {
+            color: #FFD700;
+            font-size: 16px;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+            font-size: 15px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), #0088AA);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: var(--white);
+        }
+
+        .author-info h4 {
+            color: var(--accent-color);
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* ==================== TEAM SECTION ==================== */
+        .team {
+            padding: 120px 60px;
+            background: var(--light-gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-color), #0088AA);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 120px;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 168, 204, 0.15);
+        }
+
+        .team-info {
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .team-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-4px);
+        }
+
+        /* ==================== APPOINTMENT SECTION ==================== */
+        .appointment {
+            padding: 120px 60px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2D4059 50%, var(--secondary-color) 100%);
+            position: relative;
+        }
+
+        .appointment .section-title,
+        .appointment .section-subtitle {
+            color: var(--white);
+        }
+
+        .appointment .section-divider {
+            background: var(--primary-color);
+        }
+
+        .appointment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        label {
+            display: block;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 168, 204, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: 0.8;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 168, 204, 0.4);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 80px 60px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #B0B0B0;
+            line-height: 2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #909090;
+            font-size: 13px;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 15px 30px;
+            }
+
+            .nav-center {
+                gap: 30px;
+            }
+
+            .hero {
+                padding: 80px 30px 40px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .features,
+            .services,
+            .team,
+            .appointment,
+            .footer {
+                padding: 80px 30px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-center {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 60px 20px 40px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-description {
+                margin: 0 auto 30px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image-box {
+                width: 300px;
+                height: 300px;
+                margin-top: 40px;
+            }
+
+            .hero-image-content {
+                font-size: 120px;
+            }
+
+            .features,
+            .services,
+            .team,
+            .appointment,
+            .footer {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .features-grid,
+            .services-grid,
+            .team-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-title {
+                font-size: 42px;
+            }
+        }
+
+        /* ==================== SCROLLBAR ==================== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        /* ==================== AOS ANIMATIONS ==================== */
+        [data-aos] {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INTRO SCREEN ANIMATION -->
+    <div class="intro-screen">
+        <div class="intro-content">
+            <p class="intro-logo">Premium Dental Care</p>
+            <div class="intro-animation">
+                <div class="intro-icon-circle">🦷</div>
+            </div>
+            <h1 class="intro-title">Smile Dental Care</h1>
+            <div class="intro-divider"></div>
+            <p class="intro-subtitle">Experience Excellence in Modern Dentistry</p>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-tooth"></i>
+            Smile Dental Care
+        </div>
+        <ul class="nav-center">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#appointment">Contact</a></li>
+        </ul>
+        <button class="nav-button" onclick="document.getElementById('appointment').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-calendar-check"></i> Book Now
+        </button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-subtitle">Welcome to Excellence</p>
+            <h1 class="hero-title">Your Premium Smile Destination</h1>
+            <p class="hero-description">
+                Combining cutting-edge technology with exceptional expertise, we deliver comprehensive dental solutions tailored to your unique needs. Experience the difference that professional care can make.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('appointment').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-calendar-check"></i> Schedule Appointment
+                </button>
+                <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-stethoscope"></i> Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="hero-image-box">
+                <div class="hero-image-content">🦷</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                We are committed to providing exceptional dental care with a patient-centered approach and the latest technology
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Expert Professionals</h3>
+                <p class="feature-description">Our team of highly qualified dentists brings decades of combined experience to every procedure.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="feature-icon">⚙️</div>
+                <h3 class="feature-title">Advanced Technology</h3>
+                <p class="feature-description">State-of-the-art equipment ensures accurate diagnosis and effective, efficient treatment.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">❤️</div>
+                <h3 class="feature-title">Compassionate Care</h3>
+                <p class="feature-description">Your comfort and satisfaction are paramount. We create a welcoming environment for every patient.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="feature-icon">💰</div>
+                <h3 class="feature-title">Transparent Pricing</h3>
+                <p class="feature-description">Clear, upfront pricing with flexible payment options to fit your budget and financial situation.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">🕐</div>
+                <h3 class="feature-title">Convenient Scheduling</h3>
+                <p class="feature-description">Flexible appointment times and online booking make accessing dental care effortless.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="350">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title">Award Winning</h3>
+                <p class="feature-description">Recognized excellence in patient care, innovative treatments, and clinical outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Our Services</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Comprehensive dental solutions for all your oral health needs
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon">🦷</div>
+                <h3 class="service-title">General Dentistry</h3>
+                <p class="service-description">Routine exams, professional cleanings, and preventative care to maintain optimal oral health.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="service-icon">✨</div>
+                <h3 class="service-title">Cosmetic Dentistry</h3>
+                <p class="service-description">Teeth whitening, veneers, and smile makeovers to enhance your natural radiance.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">🔧</div>
+                <h3 class="service-title">Orthodontics</h3>
+                <p class="service-description">Advanced braces and clear aligner systems to perfect your smile alignment.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="service-icon">🪥</div>
+                <h3 class="service-title">Endodontics</h3>
+                <p class="service-description">Specialized root canal treatment to preserve your natural teeth and eliminate pain.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">👑</div>
+                <h3 class="service-title">Implants & Restorations</h3>
+                <p class="service-description">Permanent tooth replacement solutions that look and function like natural teeth.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+                <div class="service-icon">🛡️</div>
+                <h3 class="service-title">Periodontal Care</h3>
+                <p class="service-description">Comprehensive gum disease treatment for healthy gums and strong tooth foundations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-number">8,500+</div>
+            <p class="stat-label">Satisfied Patients</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="stat-number">20+</div>
+            <p class="stat-label">Years of Excellence</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-number">35+</div>
+            <p class="stat-label">Expert Dentists</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="stat-number">99%</div>
+            <p class="stat-label">Patient Satisfaction</p>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Patient Testimonials</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Real experiences from our valued patients
+            </p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The level of professionalism and care at Smile Dental Care is exceptional. My entire experience was seamless from booking to treatment completion."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👩</div>
+                    <div class="author-info">
+                        <h4>Dr. Sarah Mitchell</h4>
+                        <p>Healthcare Professional</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"I've been a patient for 5 years. The staff is welcoming, the facility is immaculate, and the quality of care consistently exceeds expectations."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👨</div>
+                    <div class="author-info">
+                        <h4>Michael R. Johnson</h4>
+                        <p>Business Executive</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Finally found a dental practice that treats you like family. Their expertise combined with genuine care makes all the difference."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👩</div>
+                    <div class="author-info">
+                        <h4>Emily Rodriguez</h4>
+                        <p>Patient</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team" id="team">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Our Expert Team</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Highly qualified professionals dedicated to your oral health excellence
+            </p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="team-image">👨‍⚕️</div>
+                <div class="team-info">
+                    <h3 class="team-name">Dr. Rajesh Patel</h3>
+                    <p class="team-position">Chief Dentist & Founder</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="team-image">👩‍⚕️</div>
+                <div class="team-info">
+                    <h3 class="team-name">Dr. Priya Sharma</h3>
+                    <p class="team-position">Orthodontist Specialist</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="team-image">👨‍⚕️</div>
+                <div class="team-info">
+                    <h3 class="team-name">Dr. Arun Kumar</h3>
+                    <p class="team-position">Cosmetic Dentist</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="team-image">👩‍⚕️</div>
+                <div class="team-info">
+                    <h3 class="team-name">Dr. Neha Verma</h3>
+                    <p class="team-position">Oral Surgeon</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPOINTMENT SECTION -->
+    <section class="appointment" id="appointment">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Schedule Your Consultation</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Book your appointment and experience professional dental care
+            </p>
+        </div>
+
+        <div class="appointment-container" data-aos="fade-up" data-aos-delay="100">
+            <form id="appointmentForm" onsubmit="handleAppointmentSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            placeholder="Enter your full name" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="example@email.com" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="+91 86054 63560" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age *</label>
+                        <input 
+                            type="number" 
+                            id="age" 
+                            name="age" 
+                            placeholder="Your age" 
+                            min="1" 
+                            max="120" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appointmentDate">Preferred Date *</label>
+                        <input 
+                            type="date" 
+                            id="appointmentDate" 
+                            name="appointmentDate" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentTime">Preferred Time *</label>
+                        <input 
+                            type="time" 
+                            id="appointmentTime" 
+                            name="appointmentTime" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service">Service Required *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="General Dentistry">General Dentistry</option>
+                            <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                            <option value="Orthodontics">Orthodontics</option>
+                            <option value="Endodontics">Endodontics (Root Canal)</option>
+                            <option value="Implants & Restorations">Implants & Restorations</option>
+                            <option value="Periodontal Care">Periodontal Care</option>
+                            <option value="Regular Check-up">Regular Check-up</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender *</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group form-row full">
+                    <label for="message">Additional Information</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        placeholder="Please share any specific concerns or previous dental treatments..."
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-check-circle"></i> Confirm Appointment
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-tooth"></i> Smile Dental Care</h3>
+                <p>Excellence in dental care with a commitment to patient comfort, modern technology, and superior clinical outcomes. Your smile is our priority.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Navigation</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#team">Our Team</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#appointment">Contact</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-phone"></i> +91 8605463560</p>
+                <p><i class="fas fa-envelope"></i> info@smiledental.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Smile Street, Dental City, India 400001</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Operating Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
+                <p>Saturday: 10:00 AM - 5:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Smile Dental Care. All rights reserved. | Designed for excellence in patient care</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            delay: 100
+        });
+
+        // Handle Appointment Form Submission
+        function handleAppointmentSubmit(event) {
+            event.preventDefault();
+
+            // Get all form values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            const appointmentDate = document.getElementById('appointmentDate').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
+            const service = document.getElementById('service').value;
+            const gender = document.getElementById('gender').value;
+            const message = document.getElementById('message').value;
+
+            // Create professional WhatsApp message
+            const whatsappMessage = encodeURIComponent(
+                `*NEW APPOINTMENT REQUEST - SMILE DENTAL CARE*\n\n` +
+                `*PATIENT INFORMATION*\n` +
+                `Name: ${fullName}\n` +
+                `Email: ${email}\n` +
+                `Phone: ${phone}\n` +
+                `Age: ${age}\n` +
+                `Gender: ${gender}\n\n` +
+                `*APPOINTMENT DETAILS*\n` +
+                `Preferred Date: ${appointmentDate}\n` +
+                `Preferred Time: ${appointmentTime}\n` +
+                `Service Required: ${service}\n\n` +
+                `*ADDITIONAL NOTES*\n` +
+                `${message || 'No additional notes'}\n\n` +
+                `Please confirm this appointment at your earliest convenience. Thank you!`
+            );
+
+            // WhatsApp API URL with phone number
+            const whatsappURL = `https://api.whatsapp.com/send?phone=918605463560&text=${whatsappMessage}`;
+
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+
+            // Reset form
+            document.getElementById('appointmentForm').reset();
+
+            // Show success message
+            alert('Your appointment request has been sent to WhatsApp. Our team will confirm your appointment shortly!');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.1)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Set minimum date to today for appointment
+        const dateInput = document.getElementById('appointmentDate');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        console.log('Smile Dental Care - Premium Dental Website Loaded Successfully');
+    </script>
+</body>
+</html>
